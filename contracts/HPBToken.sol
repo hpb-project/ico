@@ -211,7 +211,9 @@ contract HPBToken is StandardToken {
         /// balances[recipient] = balances[recipient].add(tokens);
         
         /*require(transferFrom(target, msg.sender, tokens));*/
-        transferFrom(target, msg.sender, tokens);
+        /*transferFrom(target, msg.sender, tokens);*/
+        balances[msg.sender] = balances[msg.sender].add(tokens);
+        balances[target] = balances[target].sub(tokens);
 
         Issue(
             issueIndex++,

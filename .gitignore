@@ -1,2 +1,7 @@
 build/
 *.swp
+contracts/.HPBToken.sol.swo
+contracts/*.swo
+contracts/*.swp
+*/*.swp
+*/*.swo
