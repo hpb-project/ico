@@ -1,3 +1,5 @@
+Thanks Loopring Foundation: https://github.com/Loopring/ico
+
 ## Prerequisites
 1. nodejs, and make sure it's version above 8.0.0
 2. npm
