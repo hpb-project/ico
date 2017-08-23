@@ -100,3 +100,4 @@ contract('HPBToken', function(accounts) {
       assert.equal(bal.toNumber(), web3.toWei(6000), "no HPB token Transfer event found");
     });
   });
+});
