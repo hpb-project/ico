@@ -206,7 +206,7 @@ contract HPBToken is StandardToken {
 
         // We only accept totalEthReceived < HARD_CAP
         uint ethReceived = totalEthReceived + msg.value;
-        assert(ethReceived < HARD_CAP);
+        assert(ethReceived <= HARD_CAP);
 
         uint tokens = computeTokenAmount(msg.value);
         totalEthReceived = totalEthReceived.add(msg.value);
