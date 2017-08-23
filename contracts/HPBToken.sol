@@ -204,6 +204,10 @@ contract HPBToken is StandardToken {
         // We only accept minimum purchase of 0.01 ETH.
         assert(msg.value >= 0.01 ether);
 
+        // We only accept totalEthReceived < HARD_CAP
+        uint ethReceived = totalEthReceived + msg.value;
+        assert(ethReceived < HARD_CAP);
+
         uint tokens = computeTokenAmount(msg.value);
         totalEthReceived = totalEthReceived.add(msg.value);
         /// todo
