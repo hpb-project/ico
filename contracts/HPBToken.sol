@@ -69,8 +69,8 @@ contract HPBToken is StandardToken {
     /// Maximum amount of fund to be raised, the sale ends on reaching this amount.
     uint256 public constant HARD_CAP = 4500 ether;
 
-    /// Base exchange rate is set to 1 ETH = 1000 HPB.
-    uint256 public constant BASE_RATE = 1000;
+    /// Base exchange rate is set to 1 ETH = 1050 HPB.
+    uint256 public constant BASE_RATE = 1050;
 
     /// A simple stat for emitting events.
     uint public totalEthReceived = 0;
@@ -203,6 +203,9 @@ contract HPBToken is StandardToken {
     function issueToken(address recipient) payable inProgress {
         // We only accept minimum purchase of 0.01 ETH.
         assert(msg.value >= 0.01 ether);
+
+        // We only accept maximum purchase of 10 ETH.
+        assert(msg.value <= 10 ether);
 
         // We only accept totalEthReceived < HARD_CAP
         uint ethReceived = totalEthReceived + msg.value;
