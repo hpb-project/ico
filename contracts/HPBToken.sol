@@ -181,8 +181,6 @@ contract HPBToken is StandardToken {
         if (totalEthReceived < GOAL) {
             SaleFailed();
         } else {
-            /// todo
-            /// issueUnsoldToken();
             SaleSucceeded();
         }
     }
@@ -213,12 +211,7 @@ contract HPBToken is StandardToken {
 
         uint tokens = computeTokenAmount(msg.value);
         totalEthReceived = totalEthReceived.add(msg.value);
-        /// todo
-        /// totalSupply = totalSupply.add(tokens);
-        /// balances[recipient] = balances[recipient].add(tokens);
         
-        /*require(transferFrom(target, msg.sender, tokens));*/
-        /*transferFrom(target, msg.sender, tokens);*/
         balances[msg.sender] = balances[msg.sender].add(tokens);
         balances[target] = balances[target].sub(tokens);
 
